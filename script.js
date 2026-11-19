@@ -124,7 +124,15 @@ function updateProgress() {
   const el = document.getElementById('progressCount');
   if (el) el.textContent = `${completedCount()}/7`;
   const hubStatus = document.getElementById('hubStatus');
-  if (hubStatus) hubStatus.textContent = `Завершено: ${completedCount()}/7`;
+  if (hubStatus) hubStatus.textContent = `${completedCount()} / 7 ЗАВЕРШЕНО`;
+  const hubCount = document.getElementById('hubProgressCount');
+  const hubValue = document.getElementById('hubProgressValue');
+  const hubFill = document.getElementById('hubProgressFill');
+  const count = completedCount();
+  const percent = Math.round((count / SECTION_ORDER.length) * 100);
+  if (hubCount) hubCount.textContent = `${count} из ${SECTION_ORDER.length}`;
+  if (hubValue) hubValue.textContent = `${percent}%`;
+  if (hubFill) hubFill.style.width = `${percent}%`;
 }
 
 // ---------------------------------------------------------------------------
@@ -230,46 +238,44 @@ function renderHub() {
   if (!grid) return;
   grid.innerHTML = '';
 
+  const moduleMeta = {
+    access:    { number: '01', category: 'ENTRY POINT', icon: '↳', hint: 'Начать знакомство с архивом' },
+    player:    { number: '02', category: 'PROFILE', icon: '◈', hint: 'Открыть игровой профиль' },
+    cyber:     { number: '03', category: 'DIGITAL TRACE', icon: '⌘', hint: 'Открыть CYBER TERMINAL' },
+    mind:      { number: '04', category: 'PERSONAL NOTES', icon: '✳', hint: 'Перейти к личным записям' },
+    unknown:   { number: '05', category: 'UNSORTED FILES', icon: '？', hint: 'Исследовать неизвестное' },
+    classified:{ number: '06', category: 'RESTRICTED', icon: '▣', hint: 'Открыть засекреченные материалы' },
+    finallog:  { number: '07', category: 'FINAL RECORD', icon: '↗', hint: 'Перейти к финальной записи' }
+  };
+
   SECTION_ORDER.forEach(id => {
     const status = state.sections[id];
+    const meta = moduleMeta[id];
+    const title = SECTION_LABELS[id];
+    const desc = status === 'completed' ? 'Этот раздел уже пройден.' : SECTION_DESCS[id];
+    const statusLabel = status === 'locked' ? 'LOCKED' : status === 'available' ? 'AVAILABLE' : 'COMPLETED';
     const cell = document.createElement('article');
     cell.className = 'section-cell';
-
-    let badge, title, desc, stateIcon;
-    if (status === 'locked') {
-      badge = 'LOCKED';
-      title = SECTION_LABELS[id];
-      desc = SECTION_DESCS[id];
-      stateIcon = '<div class="state-lock">🔒</div>';
-    } else if (status === 'available') {
-      badge = 'AVAILABLE';
-      title = SECTION_LABELS[id];
-      desc = SECTION_DESCS[id];
-      stateIcon = '';
-    } else {
-      badge = 'COMPLETED';
-      title = SECTION_LABELS[id];
-      desc = 'Раздел пройден.';
-      stateIcon = '<div class="state-done">✓</div>';
-    }
-
-    const cls = `section-link ${status}`;
     cell.innerHTML = `
-      <button class="${cls}" data-section="${id}" ${status === 'locked' ? 'disabled aria-disabled="true"' : ''}>
-        ${stateIcon}
-        <span class="section-badge">${badge}</span>
-        <span class="section-title-mini">${title}</span>
-        <span class="section-desc">${desc}</span>
+      <button class="section-link ${status}" data-section="${id}" ${status === 'locked' ? 'disabled aria-disabled="true"' : ''} aria-label="${statusLabel}: ${title}">
+        <span class="hub-card-top"><span class="hub-card-number">${meta.number} / ${meta.category}</span><span class="hub-card-icon" aria-hidden="true">${meta.icon}</span></span>
+        <span class="hub-card-title">${title}</span>
+        <span class="hub-card-desc">${desc}</span>
+        <span class="hub-card-bottom"><span class="section-badge">${statusLabel}</span><span class="hub-card-hint">${status === 'locked' ? 'ДОСТУП ЗАКРЫТ' : meta.hint}</span></span>
       </button>
     `;
     grid.appendChild(cell);
   });
 
   grid.onclick = (e) => {
-    const btn = e.target.closest('[data-section]');
-    if (!btn) return;
+    const btn = e.target.closest('button[data-section]');
+    if (!btn || btn.disabled) return;
     navigateTo(btn.dataset.section);
   };
+
+  // Keep the HUB progress panel in sync with the global archive counter
+  // whenever the directory is rendered or reopened.
+  updateProgress();
 }
 
 // ---------------------------------------------------------------------------
@@ -505,6 +511,53 @@ function initPlayer() {
 // CYBER — FIND THE ANOMALY puzzle + hidden star (letter I)
 // ===========================================================================
 function initCyber() {
+  // CYBER module navigation: each card opens its own dossier inside this view.
+  const cyberMain = document.getElementById('cyberMain');
+  const cyberPuzzle = document.getElementById('cyberPuzzle');
+  const cyberExplain = document.getElementById('cyberExplain');
+  const cyberPanels = document.querySelectorAll('[data-cyber-panel]');
+  const openCyberPanel = (name) => {
+    const panel = document.querySelector(`[data-cyber-panel=\"${name}\"]`);
+    if (!panel) return;
+    if (cyberMain) cyberMain.hidden = true;
+    if (cyberPuzzle) cyberPuzzle.hidden = true;
+    if (cyberExplain) cyberExplain.hidden = true;
+    cyberPanels.forEach(item => { item.hidden = item !== panel; });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  const closeCyberPanel = () => {
+    cyberPanels.forEach(item => { item.hidden = true; });
+    if (cyberMain) cyberMain.hidden = false;
+    if (cyberPuzzle && state.sections.cyber !== 'completed') cyberPuzzle.hidden = false;
+    if (cyberExplain && state.sections.cyber === 'completed') cyberExplain.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  document.querySelectorAll('[data-cyber-open]').forEach(card => {
+    const activate = () => openCyberPanel(card.dataset.cyberOpen);
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('#cyberStar')) return;
+      activate();
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); }
+    });
+  });
+  document.querySelectorAll('.cyber-panel-back').forEach(button => button.addEventListener('click', closeCyberPanel));
+  const commandInput = document.getElementById('cyberCommand');
+  const commandButton = document.getElementById('cyberRunCommand');
+  const commandHint = document.getElementById('cyberCommandHint');
+  const runCommand = () => {
+    if (!commandInput) return;
+    const command = commandInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    const match = command.match(/^open (checkscam|osint|phishing|future)$/);
+    if (match) { openCyberPanel(match[1]); if (commandHint) commandHint.textContent = `MODULE OPENED: ${match[1].toUpperCase()}`; commandInput.value = ''; return; }
+    if (command === 'help') { if (commandHint) commandHint.textContent = 'Команды: open checkscam | open osint | open phishing | open future'; return; }
+    if (command === 'back') { closeCyberPanel(); if (commandHint) commandHint.textContent = 'Возврат в CYBER TERMINAL.'; return; }
+    if (commandHint) commandHint.textContent = 'Команда не распознана. Введите help.';
+  };
+  if (commandButton) commandButton.addEventListener('click', runCommand);
+  if (commandInput) commandInput.addEventListener('keydown', event => { if (event.key === 'Enter') runCommand(); });
+
   const puzzle = document.getElementById('cyberPuzzle');
   const explain = document.getElementById('cyberExplain');
   const options = document.querySelectorAll('#cyberOptions .option-btn');
@@ -546,7 +599,8 @@ function initCyber() {
 
   const star = document.getElementById('cyberStar');
   if (star) {
-    star.addEventListener('click', () => {
+    star.addEventListener('click', (event) => {
+      event.stopPropagation();
       setStar('cyber');
       setLetter('I');
       star.style.color = '#fff';
@@ -721,22 +775,29 @@ function initFinal() {
   const endMessage = document.getElementById('endMessage');
 
   const envelope = document.getElementById('envelope');
-  if (envelope) {
+  let letterOpened = false;
+
+  if (envelope && envelopeFront && envelopeLetter) {
     envelope.addEventListener('click', () => {
+      if (letterOpened) return;
+      letterOpened = true;
       envelopeFront.classList.add('opened');
+      envelopeLetter.hidden = false;
       envelopeLetter.classList.add('opened');
       showToast('Письмо открыто.');
+      if (btnClose) btnClose.disabled = false;
     });
   }
 
   if (btnClose) {
+    btnClose.disabled = true;
     btnClose.addEventListener('click', () => {
-      const env = document.getElementById('envelope');
-      env.style.opacity = '0';
-      env.style.transform = 'scale(0.92)';
+      if (!letterOpened || !envelope) return;
+      envelope.style.opacity = '0';
+      envelope.style.transform = 'scale(0.92)';
       setTimeout(() => {
-        env.hidden = true;
-        endMessage.hidden = false;
+        envelope.hidden = true;
+        if (endMessage) endMessage.hidden = false;
         completeSection('finallog');
         showToast('Архив закрыт.');
       }, 500);
