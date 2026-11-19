@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#171421">
+  <title>ARCHIVE 022 вЂ” PERSONAL DATA STORAGE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Comfortaa:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="archive-header">
+    <div class="header-inner">
+      <div class="archive-brand">
+        <span class="brand-prefix">ARCHIVE</span>
+        <span class="brand-number">022</span>
+      </div>
+      <div class="progress">
+        <span class="progress-label">ARCHIVE PROGRESS</span>
+        <span class="progress-count" id="progressCount">0/7</span>
+      </div>
+      <button class="btn-icon btn-open-hub" id="openHub" aria-label="РћС‚РєСЂС‹С‚СЊ РїР°РЅРµР»СЊ Р°СЂС…РёРІР°">ARCHIVE</button>
+      <button class="btn-icon" id="openSettings" aria-label="РќР°СЃС‚СЂРѕР№РєРё Р°СЂС…РёРІР°">вљ™</button>
+    </div>
+  </header>
+  <main id="app">
+    <!-- ===== VIEW: ACCESS / WELCOME ===== -->
+    <section class="view" id="view-access" data-view="access">
+      <div class="access-screen">
+        <div class="access-glow"></div>
+        <div class="access-content">
+          <div class="access-header-text">
+            <h1 class="archive-title">ARCHIVE 022</h1>
+            <p class="archive-subtitle">PERSONAL DATA STORAGE</p>
+          </div>
+          <p class="access-intro">
+            РћР±РЅР°СЂСѓР¶РµРЅ Р°СЂС…РёРІ СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё РЅРµР·Р°РІРµСЂС€С‘РЅРЅС‹РјРё Р·Р°РїРёСЃСЏРјРё.<br>
+            Р§Р°СЃС‚СЊ РјР°С‚РµСЂРёР°Р»РѕРІ РґРѕСЃС‚СѓРїРЅР°. РћСЃС‚Р°Р»СЊРЅС‹Рµ С‚СЂРµР±СѓСЋС‚ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ РґРѕСЃС‚СѓРїР°.<br>
+            Р•СЃР»Рё С‚С‹ Р·РґРµСЃСЊ, Р·РЅР°С‡РёС‚, С‚РµР±Рµ СЂР°Р·СЂРµС€РёР»Рё РїРѕСЃРјРѕС‚СЂРµС‚СЊ РЅРµРјРЅРѕРіРѕ РіР»СѓР±Р¶Рµ.
+          </p>
+          <button class="btn-init" id="btnInit">INITIALIZE ARCHIVE</button>
+          <div class="access-loader" id="accessLoader" hidden>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+          </div>
+          <p class="access-hint" id="accessHint" hidden>РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р°СЂС…РёРІР°...</p>
+        </div>\r\n\r\n          <div class="access-puzzle" id="accessPuzzle" hidden>
+        <div class="case-file">
+          <span class="case-tag">CLUE #01</span>
+          <h3 class="puzzle-title">РџР•Р Р’РђРЇ Р—РђР“РђР”РљРђ</h3>
+        </div>
+        <p class="puzzle-text">РџРѕРґСЃРєР°Р·РєРё:</p>
+        <ul class="situations">
+          <li>Р›СЋР±Р»СЋ СЂР°Р·Р±РёСЂР°С‚СЊ С‚Рѕ, С‡С‚Рѕ РґСЂСѓРіРёРµ РїСЂРµРґРїРѕС‡РёС‚Р°СЋС‚ РїСЂРѕСЃС‚Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ.</li>
+          <li>РРЅРѕРіРґР° РјРЅРµ РёРЅС‚РµСЂРµСЃРЅРµРµ РїРѕРЅСЏС‚СЊ РґРµР№СЃС‚РІРёСЏ СЃРѕРїРµСЂРЅРёРєР°, С‡РµРј РїСЂРѕСЃС‚Рѕ РїРѕР±РµРґРёС‚СЊ РµРіРѕ.</li>
+          <li>РњРµРЅСЏ РїСЂРёРІР»РµРєР°РµС‚ РјРёСЂ, РіРґРµ Р·Р° РѕРґРЅРѕР№ СЃСЃС‹Р»РєРѕР№ РјРѕР¶РµС‚ СЃРєСЂС‹РІР°С‚СЊСЃСЏ С†РµР»Р°СЏ РёСЃС‚РѕСЂРёСЏ.</li>
+        </ul>
+        <p class="puzzle-question">В«РљР°Рє РґСѓРјР°РµС€СЊ, С‡РµРј Р·Р°РЅРёРјР°РµС‚СЃСЏ Р°РІС‚РѕСЂ Р°СЂС…РёРІР°?В»</p>
+        <div class="options" id="accessOptions">
+          <div class="option-chip" role="checkbox" aria-checked="false" tabindex="0" data-value="a">
+            <span class="check-mark">вњ§</span><span>РРіСЂС‹ Рё РєРёР±РµСЂСЃРїРѕСЂС‚.</span>
+          </div>
+          <div class="option-chip" role="checkbox" aria-checked="false" tabindex="0" data-value="b">
+            <span class="check-mark">вњ§</span><span>РРЅС„РѕСЂРјР°С†РёРѕРЅРЅР°СЏ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ.</span>
+          </div>
+          <div class="option-chip" role="checkbox" aria-checked="false" tabindex="0" data-value="c">
+            <span class="check-mark">вњ§</span><span>РњСѓР·С‹РєР° Рё С‚РІРѕСЂС‡РµСЃС‚РІРѕ.</span>
+          </div>
+        </div>
+        <button class="btn-confirm" id="accessConfirm" hidden>РџРћР”РўР’Р•Р Р”РРўР¬</button>
+        <p class="puzzle-feedback" id="accessFeedback"></p>
+      </div>
+
+      <div class="access-completed" id="accessCompleted" hidden>
+        <p class="case-closed">CASE CLOSED вЂ” РґРѕСЃС‚СѓРї РїРѕРґС‚РІРµСЂР¶РґС‘РЅ. Р Р°Р·РґРµР» PLAYER РѕС‚РєСЂС‹С‚.</p>
+      </div>
+
+        <div class="access-decor">
+          <svg class="dec-star" viewBox="0 0 100 100"><circle cx="50" cy="50" r="4" fill="#9274BD" opacity="0.6"/></svg>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: HUB (ARCHIVE PANEL) ===== -->
+    <section class="view" id="view-hub" data-view="hub">
+      <div class="hub-wrapper">
+        <div class="hub-header">
+          <button class="btn-back" id="hubBack">в†ђ Рљ Р РђР—Р”Р•Р›РђРњ</button>
+          <h2 class="hub-title">РђР РҐРР’ 022</h2>
+          <div class="hub-status" id="hubStatus">Р’РЎР• Р РђР—Р”Р•Р›Р«</div>
+        </div>
+
+        <div class="sections-grid" id="sectionsGrid">
+          <!-- Section cards injected by JS -->
+        </div>
+
+        <div class="hub-footer">
+          <p class="hub-note">РЎРѕСЃС‚РѕСЏРЅРёСЏ СЂР°Р·РґРµР»РѕРІ: LOCKED В· AVAILABLE В· COMPLETED</p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: PLAYER ===== -->
+    <section class="view" id="view-player" data-view="player">
+      <div class="section-page">
+        <div class="section-header">
+          <button class="btn-back" id="playerBack">в†ђ РќРђР—РђР” Р’ РђР РҐРР’</button>
+          <h2 class="section-title">PLAYER</h2>
+          <span class="section-tag">РР“Р РћР’РћР™ РџР РћР¤РР›Р¬</span>
+        </div>
+
+        <div class="player-content">
+          <div class="player-card game-card evidence-card">
+            <div class="evidence-tag">EVIDENCE</div>
+            <div class="card-sticker star-reveal" id="playerStar" aria-label="РЎРєСЂС‹С‚Р°СЏ Р·РІРµР·РґР°">в…</div>
+            <h3 class="card-label">Р›Р®Р‘РРњРђРЇ РР“Р Рђ</h3>
+            <p class="card-value">CS:GO</p>
+            <p class="card-text">РЎРѕСЂРµРІРЅРѕРІР°С‚РµР»СЊРЅС‹Р№ Counter-Strike, Р°РЅР°Р»РёР· СЂРµС€РµРЅРёР№, Р°РґР°РїС‚Р°С†РёСЏ.</p>
+          </div>
+
+          <div class="player-card interests-card">
+            <h3 class="card-label">РРќРўР•Р Р•РЎР«</h3>
+            <ul class="interest-list">
+              <li>Gambit 2021</li>
+              <li>Team Spirit</li>
+              <li>sh1ro</li>
+              <li>СЃРѕСЂРµРІРЅРѕРІР°С‚РµР»СЊРЅС‹Р№ CS</li>
+              <li>Р°РЅР°Р»РёР· СЃРѕРїРµСЂРЅРёРєР°</li>
+              <li>РїСЂРёРЅСЏС‚РёРµ СЂРµС€РµРЅРёР№</li>
+            </ul>
+          </div>
+
+          <div class="player-card quote-card">
+            <blockquote>
+              В«РњРЅРµ РЅСЂР°РІРёС‚СЃСЏ РЅРµ С‚РѕР»СЊРєРѕ СЃР°Рј РїСЂРѕС†РµСЃСЃ РёРіСЂС‹. Р“РѕСЂР°Р·РґРѕ РёРЅС‚РµСЂРµСЃРЅРµРµ РЅР°Р±Р»СЋРґР°С‚СЊ Р·Р° С‚РµРј, РєР°Рє РїСЂРёРЅРёРјР°СЋС‚СЃСЏ СЂРµС€РµРЅРёСЏ, Р·Р°РјРµС‡Р°С‚СЊ РїСЂРёРІС‹С‡РєРё СЃРѕРїРµСЂРЅРёРєР° Рё РїС‹С‚Р°С‚СЊСЃСЏ РїРѕРЅСЏС‚СЊ, С‡С‚Рѕ РѕРЅ СЃРѕР±РёСЂР°РµС‚СЃСЏ СЃРґРµР»Р°С‚СЊ РґР°Р»СЊС€Рµ.<br><br>РРЅРѕРіРґР° РѕРґРёРЅ РїСЂР°РІРёР»СЊРЅРѕ РїСЂРѕС‡РёС‚Р°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІР°Р¶РЅРµРµ РЅРµСЃРєРѕР»СЊРєРёС… Р±С‹СЃС‚СЂС‹С… РґРµР№СЃС‚РІРёР№В».
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="puzzle-box" id="playerPuzzle">
+          <div class="case-file">
+            <span class="case-tag">CLUE #02</span>
+            <h3 class="puzzle-title">Р—РђР“РђР”РљРђ: READ THE GAME</h3>
+          </div>
+          <p class="puzzle-text">РЎРёС‚СѓР°С†РёСЏ:</p>
+          <ul class="situations">
+            <li>РЎРѕРїРµСЂРЅРёРє РїРѕСЃС‚РѕСЏРЅРЅРѕ Р·Р°РЅРёРјР°РµС‚ РѕРґРЅСѓ Рё С‚Сѓ Р¶Рµ РїРѕР·РёС†РёСЋ.</li>
+            <li>РЎРѕРїРµСЂРЅРёРє РЅРµРѕР¶РёРґР°РЅРЅРѕ РјРµРЅСЏРµС‚ РїСЂРёРІС‹С‡РЅС‹Р№ СЃС‚РёР»СЊ.</li>
+            <li>РљРѕРјР°РЅРґР° РїСЂРѕРёРіСЂС‹РІР°РµС‚ РЅРµСЃРєРѕР»СЊРєРѕ СЂР°СѓРЅРґРѕРІ РїРѕРґСЂСЏРґ.</li>
+          </ul>
+          <p class="puzzle-question">В«Р§С‚Рѕ СЏ РїРѕСЃС‚Р°СЂР°СЋСЃСЊ СЃРґРµР»Р°С‚СЊ РІ РїРµСЂРІСѓСЋ РѕС‡РµСЂРµРґСЊ?В»</p>
+          <div class="options" id="playerOptions">
+            <button class="option-btn" data-value="a">РРіСЂР°С‚СЊ Р°РіСЂРµСЃСЃРёРІРЅРµРµ Рё РІР·СЏС‚СЊ Р±РѕР»СЊС€Рµ С„СЂР°РіРѕРІ</button>
+            <button class="option-btn" data-value="b">РџСЂРѕР°РЅР°Р»РёР·РёСЂРѕРІР°С‚СЊ РґРµР№СЃС‚РІРёСЏ СЃРѕРїРµСЂРЅРёРєР°, РЅР°Р№С‚Рё Р·Р°РєРѕРЅРѕРјРµСЂРЅРѕСЃС‚Рё Рё Р°РґР°РїС‚РёСЂРѕРІР°С‚СЊСЃСЏ</button>
+            <button class="option-btn" data-value="c">Р—Р°РІРµСЂС€РёС‚СЊ РјР°С‚С‡ Рё РЅР°С‡Р°С‚СЊ РЅРѕРІС‹Р№</button>
+          </div>
+          <button class="btn-confirm" id="playerConfirm" hidden>РџРћР”РўР’Р•Р Р”РРўР¬</button>
+          <p class="puzzle-feedback" id="playerFeedback"></p>
+        </div>
+
+        <div class="record-reveal" id="playerRecord" hidden>
+          <div class="record-header">RECORD 02</div>
+          <p class="record-text">В«РњРЅРµ РЅСЂР°РІРёС‚СЃСЏ РЅР°С…РѕРґРёС‚СЊ Р·Р°РєРѕРЅРѕРјРµСЂРЅРѕСЃС‚Рё. РќР°РІРµСЂРЅРѕРµ, РїРѕСЌС‚РѕРјСѓ РјРµРЅСЏ С‚Р°Рє СѓРІР»РµРєР°СЋС‚ РёРіСЂС‹, РіРґРµ РЅСѓР¶РЅРѕ РЅРµ С‚РѕР»СЊРєРѕ Р±С‹СЃС‚СЂРѕ СЂРµР°РіРёСЂРѕРІР°С‚СЊ, РЅРѕ Рё РґСѓРјР°С‚СЊВ».</p>
+          <p class="letter-found" id="playerLetter">РќР°Р№РґРµРЅР° Р±СѓРєРІР°: <span class="letter-chip">M</span></p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: CYBER ===== -->
+    <section class="view" id="view-cyber" data-view="cyber">
+      <div class="section-page">
+        <div class="section-header">
+          <button class="btn-back" id="cyberBack">в†ђ РќРђР—РђР” Р’ РђР РҐРР’</button>
+          <h2 class="section-title">CYBER</h2>
+          <span class="section-tag">Р¦РР¤Р РћР’РћР™ РЎР›Р•Р”</span>
+        </div>
+
+        <div class="cyber-content">
+          <p class="intro-text">
+            В«РљРѕРіРґР°-С‚Рѕ СЏ РЅР°С‡Р°Р» РёРЅС‚РµСЂРµСЃРѕРІР°С‚СЊСЃСЏ С‚РµРј, РєР°Рє СѓСЃС‚СЂРѕРµРЅ РёРЅС‚РµСЂРЅРµС‚ Рё РЅР°СЃРєРѕР»СЊРєРѕ Р»РµРіРєРѕ РјРѕР¶РЅРѕ РѕР±РјР°РЅСѓС‚СЊ С‡РµР»РѕРІРµРєР° РІ С†РёС„СЂРѕРІРѕРј РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ.<br><br>РџРѕСЃС‚РµРїРµРЅРЅРѕ РѕР±С‹С‡РЅРѕРіРѕ Р»СЋР±РѕРїС‹С‚СЃС‚РІР° СЃС‚Р°Р»Рѕ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ. РњРЅРµ Р·Р°С…РѕС‚РµР»РѕСЃСЊ СЂР°Р·Р±РёСЂР°С‚СЊСЃСЏ РІ СѓРіСЂРѕР·Р°С…, РёР·СѓС‡Р°С‚СЊ РїРѕРґРѕР·СЂРёС‚РµР»СЊРЅС‹Рµ СЃСЃС‹Р»РєРё, РёСЃРєР°С‚СЊ Р·Р°РєРѕРЅРѕРјРµСЂРЅРѕСЃС‚Рё Рё РїРѕРЅРёРјР°С‚СЊ, РєР°Рє СЂР°Р±РѕС‚Р°СЋС‚ РјРѕС€РµРЅРЅРёС‡РµСЃРєРёРµ СЃС…РµРјС‹.<br><br>РўР°Рє РїРѕСЏРІРёР»РёСЃСЊ РјРѕРё РїРµСЂРІС‹Рµ РїСЂРѕРµРєС‚С‹ Рё РёРЅС‚РµСЂРµСЃ Рє РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅРѕР№ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚РёВ».
+          </p>
+
+          <div class="folders-grid">
+            <div class="folder-card evidence-card">
+              <div class="evidence-tag">EVIDENCE</div>
+              <div class="folder-star star-reveal" id="cyberStar" aria-label="РЎРєСЂС‹С‚Р°СЏ Р±СѓРєРІР°">I</div>
+              <h4 class="folder-title">CHECKSCAM</h4>
+              <p class="folder-desc">РРґРµСЏ РїСЂРѕРµРєС‚Р° РїСЂРѕС‚РёРІ РёРЅС‚РµСЂРЅРµС‚-РјРѕС€РµРЅРЅРёС‡РµСЃС‚РІР°.</p>
+            </div>
+            <div class="folder-card">
+              <h4 class="folder-title">OSINT</h4>
+              <p class="folder-desc">РџРѕРёСЃРє Рё Р°РЅР°Р»РёР· РѕС‚РєСЂС‹С‚РѕР№ РёРЅС„РѕСЂРјР°С†РёРё.</p>
+            </div>
+            <div class="folder-card">
+              <h4 class="folder-title">PHISHING</h4>
+              <p class="folder-desc">РР·СѓС‡РµРЅРёРµ РїРѕРґРґРµР»СЊРЅС‹С… СЃР°Р№С‚РѕРІ Рё РїРѕРґРѕР·СЂРёС‚РµР»СЊРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№.</p>
+            </div>
+            <div class="folder-card">
+              <h4 class="folder-title">FUTURE</h4>
+              <p class="folder-desc">Р–РµР»Р°РЅРёРµ СЂР°Р·РІРёРІР°С‚СЊСЃСЏ РІ СЃС„РµСЂРµ РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅРѕР№ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="puzzle-box" id="cyberPuzzle">
+          <div class="case-file">
+            <span class="case-tag">CLUE #03</span>
+            <h3 class="puzzle-title">Р—РђР“РђР”РљРђ: FIND THE ANOMALY</h3>
+          </div>
+          <p class="puzzle-text">РљР°РєРѕР№ Р°РґСЂРµСЃ РІС‹РіР»СЏРґРёС‚ РїРѕРґРѕР·СЂРёС‚РµР»СЊРЅРµРµ РѕСЃС‚Р°Р»СЊРЅС‹С…?</p>
+          <div class="options" id="cyberOptions">
+            <button class="option-btn" data-value="a">steamcommunity.com</button>
+            <button class="option-btn" data-value="b">steamcommunity-login.example</button>
+            <button class="option-btn" data-value="c">support.steampowered.com</button>
+          </div>
+          <button class="btn-confirm" id="cyberConfirm" hidden>РџРћР”РўР’Р•Р Р”РРўР¬</button>
+          <p class="puzzle-feedback" id="cyberFeedback"></p>
+        </div>
+
+        <div class="anomaly-explain" id="cyberExplain" hidden>
+          <p class="explain-text">В«Р’Р°Р¶РЅРѕ СЃРјРѕС‚СЂРµС‚СЊ РЅРµ РЅР° Р·РЅР°РєРѕРјС‹Рµ СЃР»РѕРІР° РІ Р°РґСЂРµСЃРµ, Р° РЅР° РЅР°СЃС‚РѕСЏС‰РёР№ РґРѕРјРµРЅ. РќР°Р·РІР°РЅРёРµ Р±СЂРµРЅРґР° РІРЅСѓС‚СЂРё С‡СѓР¶РѕРіРѕ РґРѕРјРµРЅР° РµС‰С‘ РЅРµ РґРµР»Р°РµС‚ СЃР°Р№С‚ РѕС„РёС†РёР°Р»СЊРЅС‹РјВ».</p>
+          <p class="letter-found" id="cyberLetter">РќР°Р№РґРµРЅР° Р±СѓРєРІР°: <span class="letter-chip">I</span></p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: MIND ===== -->
+    <section class="view" id="view-mind" data-view="mind">
+      <div class="section-page">
+        <div class="section-header">
+          <button class="btn-back" id="mindBack">в†ђ РќРђР—РђР” Р’ РђР РҐРР’</button>
+          <h2 class="section-title">MIND</h2>
+          <span class="section-tag">Р’РќРЈРўР Р•РќРќРР™ РњРР </span>
+        </div>
+
+        <div class="mind-content">
+          <div class="paper-card mind-card" id="mindCard1">
+            <div class="card-number">RECORD 01</div>
+            <h3 class="card-title">FRIENDSHIP</h3>
+            <p class="card-text">
+              В«Р”Р»СЏ РјРµРЅСЏ РґСЂСѓР¶Р±Р° вЂ” СЌС‚Рѕ РЅРµ С‚РѕР»СЊРєРѕ РІРµСЃС‘Р»РѕРµ РІСЂРµРјСЏРїСЂРµРїСЂРѕРІРѕР¶РґРµРЅРёРµ. Р­С‚Рѕ РєРѕРіРґР° РІ С‚СЂСѓРґРЅС‹Р№ РјРѕРјРµРЅС‚ С‡РµР»РѕРІРµРє РјРѕР¶РµС‚ РїРѕРґРґРµСЂР¶Р°С‚СЊ С‚РµР±СЏ, РїРѕРјРѕС‡СЊ СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ СЃ РїСЂРѕР±Р»РµРјРѕР№ РёР»Рё РїСЂРѕСЃС‚Рѕ РЅР°РїСЂР°РІРёС‚СЊ РІ РЅСѓР¶РЅСѓСЋ СЃС‚РѕСЂРѕРЅСѓ.<br><br>РРЅРѕРіРґР° РґР°Р¶Рµ РЅРµР±РѕР»СЊС€РёРµ Р¶РµСЃС‚С‹ Р·РЅР°С‡Р°С‚ РіРѕСЂР°Р·РґРѕ Р±РѕР»СЊС€Рµ, С‡РµРј РєР°Р¶РµС‚СЃСЏВ».
+            </p>
+            <div class="fragment" id="mindFrag1" aria-label="Р¤СЂР°РіРјРµРЅС‚">вњ¦</div>
+          </div>
+
+          <div class="paper-card mind-card" id="mindCard2">
+            <div class="card-number">RECORD 02</div>
+            <h3 class="card-title">SOLITUDE</h3>
+            <p class="card-text">
+              В«Р”Р»СЏ РјРµРЅСЏ РІСЂРµРјСЏ РЅР°РµРґРёРЅРµ СЃ СЃРѕР±РѕР№ вЂ” СЌС‚Рѕ СЃРїРѕРєРѕР№СЃС‚РІРёРµ, СЂР°СЃСЃР»Р°Р±Р»РµРЅРёРµ Рё РјРЅРѕР¶РµСЃС‚РІРѕ С…РѕСЂРѕС€РёС… С‡СѓРІСЃС‚РІ.<br><br>РРЅРѕРіРґР° С…РѕС‡РµС‚СЃСЏ РїСЂРѕСЃС‚Рѕ РѕСЃС‚Р°С‚СЊСЃСЏ РІ С‚РёС€РёРЅРµ, РЅРёРєСѓРґР° РЅРµ С‚РѕСЂРѕРїРёС‚СЊСЃСЏ Рё РїРѕР±С‹С‚СЊ СЃРѕ СЃРІРѕРёРјРё РјС‹СЃР»СЏРјРё. РЇ РЅРµ СЃС‡РёС‚Р°СЋ, С‡С‚Рѕ РєР°Р¶РґСѓСЋ СЃРІРѕР±РѕРґРЅСѓСЋ РјРёРЅСѓС‚Сѓ РЅСѓР¶РЅРѕ Р·Р°РїРѕР»РЅСЏС‚СЊ С‡РµРј-С‚Рѕ РёР»Рё РєРµРј-С‚РѕВ».
+            </p>
+            <div class="fragment" id="mindFrag2" aria-label="Р¤СЂР°РіРјРµРЅС‚">вњ¦</div>
+          </div>
+
+          <div class="paper-card mind-card" id="mindCard3">
+            <div class="card-number">RECORD 03</div>
+            <h3 class="card-title">MISTAKES</h3>
+            <p class="card-text">
+              В«РЇ РЅРµ РІСЃРµРіРґР° РјРѕРіСѓ РїРѕРґРѕР±СЂР°С‚СЊ РїСЂР°РІРёР»СЊРЅС‹Рµ СЃР»РѕРІР°. РРЅРѕРіРґР° РїРѕРЅРёРјР°СЋ, С‡С‚Рѕ СЃРєР°Р·Р°Р» С‡С‚Рѕ-С‚Рѕ РЅРµ С‚Рѕ, СѓР¶Рµ РїРѕСЃР»Рµ СЂР°Р·РіРѕРІРѕСЂР°.<br><br>РќРѕ РґР»СЏ РјРµРЅСЏ РІР°Р¶РЅРѕ СѓРјРµС‚СЊ СЌС‚Рѕ РїСЂРёР·РЅР°С‚СЊ Рё РёР·РІРёРЅРёС‚СЊСЃСЏ. РЇ РЅРµ СЃС‡РёС‚Р°СЋ, С‡С‚Рѕ РЅСѓР¶РЅРѕ РІСЃРµРіРґР° Р±С‹С‚СЊ РїСЂР°РІС‹РјВ».
+            </p>
+            <div class="fragment" id="mindFrag3" aria-label="Р¤СЂР°РіРјРµРЅС‚">вњ¦</div>
+          </div>
+
+          <div class="paper-card mind-card editable-card" id="mindCard4">
+            <div class="card-number">RECORD 04</div>
+            <h3 class="card-title">VALUES</h3>
+            <p class="card-text placeholder-text" id="mindText4">Р­С‚Р° Р·Р°РїРёСЃСЊ РµС‰С‘ РЅРµ Р·Р°РєРѕРЅС‡РµРЅР°.</p>
+            <div class="editable-area" id="mindEditable" contenteditable="true" placeholder="Р’СЃС‚Р°РІСЊ СЃСЋРґР° СЃРІРѕРё СѓР±РµР¶РґРµРЅРёСЏ..."></div>
+            <div class="fragment" id="mindFrag4" aria-label="Р¤СЂР°РіРјРµРЅС‚">вњ¦</div>
+          </div>
+        </div>
+
+        <div class="puzzle-box" id="mindPuzzle">
+          <div class="case-file">
+            <span class="case-tag">CLUE #04</span>
+            <h3 class="puzzle-title">Р—РђР“РђР”РљРђ: FRAGMENTS</h3>
+          </div>
+          <p class="puzzle-text">РќР°Р№РґРё СЃРёРјРІРѕР»С‹ РІ РєР°СЂС‚РѕС‡РєР°С… РІС‹С€Рµ. РљР°Р¶РґС‹Р№ РёР· РЅРёС… РѕСЃС‚Р°РІР»СЏРµС‚ СЃР»РµРґ.</p>
+          <p class="puzzle-hint" id="mindHint">РџРѕРґСЃРєР°Р·РєР°: СЃРёРјРІРѕР»С‹ РЅР°С…РѕРґСЏС‚СЃСЏ РІ РїСЂР°РІРѕРј РЅРёР¶РЅРµРј СѓРіР»Сѓ РєР°СЂС‚РѕС‡РµРє.</p>
+          <div class="fragments-collected" id="fragmentsCollected">РЎРѕР±СЂР°РЅРѕ С„СЂР°РіРјРµРЅС‚РѕРІ: <span id="fragCount">0</span>/4</div>
+        </div>
+
+        <div class="record-reveal" id="mindRecord" hidden>
+          <div class="record-header">RECORD 04 UNLOCKED</div>
+          <p class="record-text">В«РќРµ РІСЃРµ РјС‹СЃР»Рё Р»РµРіРєРѕ РѕР±СЉСЏСЃРЅРёС‚СЊ СЃР»РѕРІР°РјРё. РќРµРєРѕС‚РѕСЂС‹Рµ РїСЂРѕС‰Рµ РѕСЃС‚Р°РІРёС‚СЊ Р·РґРµСЃСЊ, С‡РµРј РїС‹С‚Р°С‚СЊСЃСЏ СЃС„РѕСЂРјСѓР»РёСЂРѕРІР°С‚СЊ РІ СЂР°Р·РіРѕРІРѕСЂРµВ».</p>
+          <p class="letter-found" id="mindLetter">РќР°Р№РґРµРЅР° Р±СѓРєРІР°: <span class="letter-chip">N</span></p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: UNKNOWN ===== -->
+    <section class="view" id="view-unknown" data-view="unknown">
+      <div class="section-page">
+        <div class="section-header">
+          <button class="btn-back" id="unknownBack">в†ђ РќРђР—РђР” Р’ РђР РҐРР’</button>
+          <h2 class="section-title">UNKNOWN</h2>
+          <span class="section-tag">РќР•РР—Р’Р•РЎРўРќРћР•</span>
+        </div>
+
+        <div class="unknown-grid" id="unknownGrid">
+          <div class="unk-card" id="unkCard1">
+            <div class="unk-front">
+              <span class="unk-emoji">рџ’­</span>
+              <h4 class="unk-title">RANDOM THOUGHT</h4>
+            </div>
+            <div class="unk-back">
+              <h4>RANDOM THOUGHT</h4>
+              <p id="unkText1">РЎР»СѓС‡Р°Р№РЅР°СЏ РјС‹СЃР»СЊ вЂ” placeholder РґР»СЏ Р±СѓРґСѓС‰РµР№ Р·Р°РїРёСЃРё Р°РІС‚РѕСЂР°.</p>
+            </div>
+          </div>
+          <div class="unk-card" id="unkCard2">
+            <div class="unk-front">
+              <span class="unk-emoji">рџЋµ</span>
+              <h4 class="unk-title">MUSIC</h4>
+            </div>
+            <div class="unk-back">
+              <h4>MUSIC</h4>
+              <p id="unkText2">РњСѓР·С‹РєР° Рё РЅР°СЃС‚СЂРѕРµРЅРёРµ вЂ” placeholder РґР»СЏ Р±СѓРґСѓС‰РµР№ Р·Р°РїРёСЃРё Р°РІС‚РѕСЂР°.</p>
+            </div>
+          </div>
+          <div class="unk-card" id="unkCard3">
+            <div class="unk-front">
+              <span class="unk-emoji">рџЊ™</span>
+              <h4 class="unk-title">SILENCE</h4>
+            </div>
+            <div class="unk-back">
+              <h4>SILENCE</h4>
+              <p id="unkText3">РЎРїРѕРєРѕР№РЅС‹Рµ РїСЂРѕРіСѓР»РєРё Рё РІСЂРµРјСЏ РЅР°РµРґРёРЅРµ СЃ СЃРѕР±РѕР№ вЂ” placeholder.</p>
+            </div>
+          </div>
+          <div class="unk-card" id="unkCard4">
+            <div class="unk-front">
+              <span class="unk-emoji">рџ›ЎпёЏ</span>
+              <h4 class="unk-title">GAMBIT</h4>
+            </div>
+            <div class="unk-back">
+              <h4>GAMBIT</h4>
+              <p id="unkText4">РќРµР±РѕР»СЊС€Р°СЏ РёСЃС‚РѕСЂРёСЏ Рѕ Р»СЋР±РёРјРѕР№ РєРѕРјР°РЅРґРµ вЂ” placeholder.</p>
+            </div>
+          </div>
+          <div class="unk-card" id="unkCard5">
+            <div class="unk-front">
+              <span class="unk-emoji">рџ”®</span>
+              <h4 class="unk-title">FUTURE</h4>
+            </div>
+            <div class="unk-back">
+              <h4>FUTURE</h4>
+              <p id="unkText5">РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ Рѕ СЃРµР±Рµ С‡РµСЂРµР· РЅРµСЃРєРѕР»СЊРєРѕ Р»РµС‚ вЂ” placeholder.</p>
+            </div>
+          </div>
+          <div class="unk-card" id="unkCard6">
+            <div class="unk-front">
+              <span class="unk-emoji">рџ“Њ</span>
+              <h4 class="unk-title">UNFINISHED</h4>
+            </div>
+            <div class="unk-back">
+              <h4>UNFINISHED</h4>
+              <p id="unkText6">РўРѕ, С‡С‚Рѕ Р°РІС‚РѕСЂ РµС‰С‘ РЅРµ СѓСЃРїРµР» СЃРґРµР»Р°С‚СЊ вЂ” placeholder.</p>
+            </div>
+          </div>
+          <div class="unk-card hidden-star" id="unkStarCard">
+            <div class="unk-front star-trigger" id="unkStarTrigger">
+              <span class="unk-emoji">вњ¦</span>
+              <h4 class="unk-title">HIDDEN</h4>
+            </div>
+            <div class="unk-back">
+              <h4>HIDDEN STAR</h4>
+              <p>Р—РґРµСЃСЊ Р±С‹Р»Р° СЃРїСЂСЏС‚Р°РЅР° Р·РІРµР·РґРѕС‡РєР°.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="star-message" id="unkStarMessage" hidden>
+          <p>В«РўС‹ СѓР¶Рµ РїРѕСЃРјРѕС‚СЂРµР»Р° РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРЅРѕРіРѕ Р·Р°РїРёСЃРµР№. РќРѕ РѕРґРЅР° РїР°РїРєР° РІСЃС‘ РµС‰С‘ Р·Р°РєСЂС‹С‚Р°.<br><br>РџРѕРґСЃРєР°Р·РєР°: РёРЅРѕРіРґР° СЃР°РјРѕРµ РІР°Р¶РЅРѕРµ РЅР°С…РѕРґРёС‚СЃСЏ РЅРµ РІ РЅР°С‡Р°Р»Рµ РёСЃС‚РѕСЂРёРё, Р° РІ С‚РѕРј, СЂР°РґРё С‡РµРіРѕ РµС‘ РІРѕРѕР±С‰Рµ РЅР°С‡Р°Р»РёВ».</p>
+          <button class="btn-confirm" id="btnOpenClassified">OPEN CLASSIFIED</button>
+          <p class="letter-found" id="unkLetter">РќР°Р№РґРµРЅР° Р±СѓРєРІР°: <span class="letter-chip">D</span></p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: CLASSIFIED ===== -->
+    <section class="view" id="view-classified" data-view="classified">
+      <div class="classified-page">
+        <div class="section-header">
+          <button class="btn-back" id="classifiedBack">в†ђ РќРђР—РђР” Р’ РђР РҐРР’</button>
+          <h2 class="section-title">CLASSIFIED</h2>
+          <span class="section-tag">Р—РђРЎР•РљР Р•Р§Р•РќРќР«Р™ РњРђРўР•Р РРђР›</span>
+        </div>
+
+        <div class="classified-container">
+          <div class="confidential-folder" id="confFolder">
+            <div class="folder-tab">CONFIDENTIAL</div>
+            <div class="folder-body">
+              <div class="access-locked" id="accessLocked">
+                <div class="lock-glow"></div>
+                <h3 class="classified-title">CLASSIFIED MATERIAL</h3>
+                <p class="classified-sub">ENTER ACCESS CODE</p>
+                <div class="code-inputs" id="codeInputs">
+                  <input type="text" class="code-char" maxlength="1" data-pos="0">
+                  <input type="text" class="code-char" maxlength="1" data-pos="1">
+                  <input type="text" class="code-char" maxlength="1" data-pos="2">
+                  <input type="text" class="code-char" maxlength="1" data-pos="3">
+                </div>
+                <p class="code-hint">РџР°СЂРѕР»СЊ СЃРѕР±РёСЂР°РµС‚СЃСЏ РёР· С‡РµС‚С‹СЂС‘С… Р±СѓРєРІ: PLAYER В· CYBER В· MIND В· UNKNOWN</p>
+                <p class="puzzle-feedback" id="classifiedFeedback"></p>
+              </div>
+
+              <div class="access-granted" id="accessGranted" hidden>
+                <div class="grant-glow"></div>
+                <h3 class="grant-title">ACCESS GRANTED</h3>
+                <div class="secret-record">
+                  <h4 class="record-header">A LITTLE SECRET</h4>
+                  <p class="record-text">
+                    В«Р•СЃР»Рё С‚С‹ РґРѕС€Р»Р° РґРѕ СЌС‚РѕР№ СЃС‚СЂР°РЅРёС†С‹, Р·РЅР°С‡РёС‚, С‚РµР±Рµ СѓРґР°Р»РѕСЃСЊ СЃРѕР±СЂР°С‚СЊ РІСЃРµ С„СЂР°РіРјРµРЅС‚С‹.<br><br>РЇ СЃРїРµС†РёР°Р»СЊРЅРѕ РѕСЃС‚Р°РІРёР» СЌС‚Сѓ Р·Р°РїРёСЃСЊ РЅР°РїРѕСЃР»РµРґРѕРє. РќРµ РїРѕС‚РѕРјСѓ, С‡С‚Рѕ РѕРЅР° СЃР°РјР°СЏ РІР°Р¶РЅР°СЏ РёР»Рё СЃР»РѕР¶РЅР°СЏ, Р° РїРѕС‚РѕРјСѓ, С‡С‚Рѕ С…РѕС‚РµР» РѕСЃС‚Р°РІРёС‚СЊ С‡С‚Рѕ-С‚Рѕ РЅРµРѕР¶РёРґР°РЅРЅРѕРµ.<br><br>Р’РѕРѕР±С‰Рµ, РјРЅРµ Р±С‹Р»Рѕ РёРЅС‚РµСЂРµСЃРЅРѕ СЃРѕР·РґР°С‚СЊ РґР»СЏ С‚РµР±СЏ РЅРµС‡С‚Рѕ Р±РѕР»СЊС€РµРµ, С‡РµРј РѕР±С‹С‡РЅС‹Р№ РїРѕРґР°СЂРѕРє. Р§С‚Рѕ-С‚Рѕ, С‡С‚Рѕ РјРѕР¶РЅРѕ РёСЃСЃР»РµРґРѕРІР°С‚СЊ, РЅР°С…РѕРґРёС‚СЊ Рё РїРѕСЃС‚РµРїРµРЅРЅРѕ РѕС‚РєСЂС‹РІР°С‚СЊ.<br><br>Р С‚РµРїРµСЂСЊ РѕСЃС‚Р°Р»РѕСЃСЊ С‚РѕР»СЊРєРѕ РїРѕСЃР»РµРґРЅРµРµВ».
+                  </p>
+                </div>
+                <button class="btn-confirm" id="btnOneMoreThing">ONE MORE THING</button>
+                <p class="ps-message" id="psMessage" hidden>В«P.S. Р•СЃР»Рё С‚С‹ РЅР°Р¶Р°Р»Р° РЅР° РІСЃРµ Р·РІС‘Р·РґРѕС‡РєРё, РїРѕР·РґСЂР°РІР»СЏСЋ. РЈ С‚РµР±СЏ СЏРІРЅРѕ С…РѕСЂРѕС€РёРµ РёСЃСЃР»РµРґРѕРІР°С‚РµР»СЊСЃРєРёРµ РЅР°РІС‹РєРёВ».</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VIEW: FINAL LOG ===== -->
+    <section class="view" id="view-finallog" data-view="finallog">
+      <div class="final-page">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-front" id="envelopeFront">
+            <div class="envelope-seal"></div>
+            <div class="envelope-text">FINAL LOG / 22.11</div>
+          </div>
+          <div class="envelope-letter" id="envelopeLetter" hidden>
+            <div class="letter-content">
+              <h2 class="letter-title">РЎ Р”РќРЃРњ Р РћР–Р”Р•РќРРЇ!</h2>
+              <p class="letter-text">
+                В«РќР°РґРµСЋСЃСЊ, С‚РµР±Рµ РїРѕРЅСЂР°РІРёР»РѕСЃСЊ РЅРµР±РѕР»СЊС€РѕРµ РїСѓС‚РµС€РµСЃС‚РІРёРµ РїРѕ СЌС‚РѕРјСѓ Р°СЂС…РёРІСѓ.<br><br>РЇ С…РѕС‚РµР» СЃРґРµР»Р°С‚СЊ РїРѕРґР°СЂРѕРє, РІ РєРѕС‚РѕСЂС‹Р№ РјРѕР¶РЅРѕ РІР»РѕР¶РёС‚СЊ РЅРµ С‚РѕР»СЊРєРѕ РґРµРЅСЊРіРё РёР»Рё РєСЂР°СЃРёРІС‹Рµ РІРµС‰Рё, РЅРѕ Рё РІСЂРµРјСЏ, РёРґРµРё Рё С‡Р°СЃС‚РёС‡РєСѓ СЃРµР±СЏ.<br><br>РЎРїР°СЃРёР±Рѕ С‚РµР±Рµ Р·Р° РѕР±С‰РµРЅРёРµ, СЃРѕРІРјРµСЃС‚РЅС‹Рµ РјРѕРјРµРЅС‚С‹ Рё Р·Р° С‚Рѕ, С‡С‚Рѕ С‚С‹ РµСЃС‚СЊ РІ РјРѕРµР№ Р¶РёР·РЅРё.<br><br>Р–РµР»Р°СЋ С‚РµР±Рµ РїРѕР±РѕР»СЊС€Рµ С…РѕСЂРѕС€РёС… РґРЅРµР№, РёРЅС‚РµСЂРµСЃРЅС‹С… СЃРѕР±С‹С‚РёР№, РёСЃРїРѕР»РЅРµРЅРёСЏ Р¶РµР»Р°РЅРёР№ Рё Р»СЋРґРµР№, СЂСЏРґРѕРј СЃ РєРѕС‚РѕСЂС‹РјРё РјРѕР¶РЅРѕ РѕСЃС‚Р°РІР°С‚СЊСЃСЏ СЃРѕР±РѕР№.<br><br>РџСѓСЃС‚СЊ РІРїРµСЂРµРґРё Р±СѓРґРµС‚ РјРЅРѕРіРѕ РїСЂРёСЏС‚РЅРѕРіРѕ Рё РЅРµРѕР¶РёРґР°РЅРЅРѕРіРѕ.<br><br>РЎ РґРЅС‘Рј СЂРѕР¶РґРµРЅРёСЏ!В»
+              </p>
+              <p class="letter-signature">END OF ARCHIVE 022</p>
+            </div>
+            <button class="btn-confirm" id="btnCloseArchive">CLOSE ARCHIVE</button>
+          </div>
+        </div>
+        <div class="end-message" id="endMessage" hidden>
+          <h2>THANK YOU FOR EXPLORING.</h2>
+          <p>РђСЂС…РёРІ 022 Р·Р°РєСЂС‹С‚.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== SETTINGS MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modalSettings">
+      <div class="modal-header">РќРђРЎРўР РћР™РљР РђР РҐРР’Рђ</div>
+      <p class="modal-desc">РЎР±СЂРѕСЃ СѓРґР°Р»РёС‚ РІРµСЃСЊ СЃРѕС…СЂР°РЅС‘РЅРЅС‹Р№ РїСЂРѕРіСЂРµСЃСЃ. Р­С‚Рѕ РґРµР№СЃС‚РІРёРµ РЅРµР»СЊР·СЏ РѕС‚РјРµРЅРёС‚СЊ.</p>
+      <button class="btn-reset" id="btnReset">RESET ARCHIVE</button>
+      <button class="btn-close-modal" id="btnCloseModal">Р—Р°РєСЂС‹С‚СЊ</button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
